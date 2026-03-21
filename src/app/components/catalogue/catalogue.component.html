@@ -1,0 +1,104 @@
+<div class="container-fluid">
+	<div class="container rounded-2" id="adContainer">
+		<h3>Grab Upto 50% Off On</h3>
+		<h3>Selected Fitness Gear</h3>
+		<button class="btn rounded-5 mt-2">Buy Now</button>
+	</div>
+	<!-- ! Filter and Sort Feature -->
+	<div class="container mt-3 d-flex justify-content-between">
+		<div class="dropdown">
+			<a
+				class="btn btn-outline-secondary rounded-5 dropdown-toggle"
+				role="button"
+				data-bs-toggle="dropdown"
+				aria-expanded="false"
+			>
+				Price Range
+			</a>
+
+			<ul class="dropdown-menu">
+				<li>
+					<a
+						class="dropdown-item"
+						(click)="filterProductsByPrice(0, 100)"
+						>$0 - $100</a
+					>
+				</li>
+				<li>
+					<a
+						class="dropdown-item"
+						(click)="filterProductsByPrice(100, 1000)"
+						>$100 - $1000</a
+					>
+				</li>
+				<li>
+					<a
+						class="dropdown-item"
+						(click)="filterProductsByPrice(1000, 10000)"
+						>$1000 - $10000</a
+					>
+				</li>
+				<li>
+					<a
+						class="dropdown-item"
+						(click)="filterProductsByPrice(10000, 100000)"
+						>Above $10000</a
+					>
+				</li>
+				<li>
+					<a
+						class="dropdown-item"
+						(click)="filterProductsByPrice(0, 100000)"
+						>No Range</a
+					>
+				</li>
+			</ul>
+		</div>
+		<div class="dropdown">
+			<a
+				class="btn btn-outline-secondary rounded-5 dropdown-toggle"
+				role="button"
+				data-bs-toggle="dropdown"
+				aria-expanded="false"
+			>
+				Sort By
+			</a>
+
+			<ul class="dropdown-menu">
+				<li><a class="dropdown-item" (click)="sortProducts('name')">Name (A-Z)</a></li>
+				<li><a class="dropdown-item" (click)="sortProducts('price')">Price</a></li>
+			</ul>
+		</div>
+	</div>
+
+	<!-- ! Products By Category -->
+	<div class="container my-4">
+		<h4>{{ selectedCategory }} For You!</h4>
+		<div class="row">
+			<div class="col-3 gy-3" *ngFor="let product of filteredProducts">
+				<div class="card">
+					<img src="{{ product.image_url }}" class="card-img-top" />
+					<div class="card-body">
+						<div class="d-flex justify-content-between">
+							<p class="card-text fs-6 fw-bold">
+								{{ product.name }}
+							</p>
+							<p class="card-text fw-semibold">
+								${{ product.price }}
+							</p>
+						</div>
+						<p class="card-text text-wrap">
+							{{ product.description }}
+						</p>
+						<button
+							class="btn btn-outline-dark rounded-5"
+							(click)="addProductToCart(product)"
+						>
+							Add to Cart
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

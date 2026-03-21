@@ -1,0 +1,40 @@
+<div class="container-fluid">
+	<div
+		class="container d-flex flex-column align-items-start p-5"
+		id="landing-container"
+	>
+		<h1>Shopping And</h1>
+		<h1>Department Store.</h1>
+		<p class="mt-3 text-body-secondary">
+			Shopping is a bit a relaxing hobby for me, which
+		</p>
+		<p class="mb-3 text-body-secondary">
+			is sometimes troubling for the bank balance.
+		</p>
+		<button class="btn rounded-5">Learn more</button>
+	</div>
+
+	<div class="container p-5">
+		<h5 class="fw-bold">Shop our top categories</h5>
+		<div
+			class="container d-flex justify-content-between my-3 flex-wrap gap-2"
+		>
+			<div
+				class="card border-0"
+				[routerLink]="['/catalogue', category.name]"
+				id="categories"
+				*ngFor="let category of categories"
+			>
+				<img class="card" src="{{ category.image_url }}" alt="" />
+				<div class="card-img-overlay" style="width: 10rem">
+					<h5
+						class="card-title text-center"
+						style="color: antiquewhite"
+					>
+						{{ category.name }}
+					</h5>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

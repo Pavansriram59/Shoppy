@@ -1,0 +1,123 @@
+<div class="container my-3">
+	<h3 class="text-center" *ngIf="cartItems.length else elseBlock">Your Orders</h3>
+	<ng-template #elseBlock>
+		<h3 class="text-center">Cart is empty!!</h3>
+	</ng-template>
+	<div class="container mt-5" *ngIf="cartItems.length">
+		<div class="row text-center">
+			<div
+				class="col-3 fs-5 fw-semibold"
+				*ngFor="let title of cartTitles"
+			>
+				{{ title }}
+			</div>
+		</div>
+	</div>
+	<div class="container" id="cart-container">
+		<div class="row" *ngFor="let item of cartItems">
+			<div class="col">
+				<div class="card mb-2">
+					<div class="row">
+						<div class="col-3">
+							<img src="{{ item.image_url }}" class="img-fluid" />
+						</div>
+						<div class="col-3 text-center">
+							<div class="card-body mt-4">
+								<p class="card-title fw-bold fs-5">
+									{{ item.name }}
+								</p>
+								<p class="card-text fw-semibold">
+									Price: ${{ item.price }}
+								</p>
+								<p class="card-text">
+									Quantity: {{ item.quantity }}
+								</p>
+								<button
+									class="btn btn-outline-danger rounded-5"
+									(click)="deleteItem(item.id)"
+								>
+									<i class="bi bi-trash-fill"></i> Delete
+								</button>
+							</div>
+						</div>
+						<div
+							class="col-3 d-flex justify-content-center align-items-center"
+						>
+							<div class="btn-group" role="group">
+								<button
+									class="btn btn-outline-danger"
+									(click)="decreaseQuant(item.id, item)"
+								>
+									<i class="bi bi-dash"></i>
+								</button>
+								<button class="btn btn-light" disabled>
+									{{ item.quantity }}
+								</button>
+								<button
+									class="btn btn-outline-success"
+									(click)="increaseQuant(item.id, item)"
+								>
+									<i class="bi bi-plus"></i>
+								</button>
+							</div>
+						</div>
+						<div
+							class="col-3 d-flex justify-content-center align-items-center"
+						>
+							<p class="fw-semibold">
+								Total: ${{ item.price * item.quantity }}
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container" *ngIf="cartItems.length" id="checkout-container">
+		<div class="card w-50 ms-auto">
+			<div class="card-header">
+				<h3 class="text-center">Order Summary</h3>
+			</div>
+			<div class="card-body text-center">
+				<h4 class="card-title">Total: ${{ totalAmount }}</h4>
+				<button class="btn btn-lg btn-dark rounded-5" data-bs-toggle="modal" data-bs-target="#exampleModal">
+					Place Order
+				</button>
+			</div>
+		</div>
+	</div>
+	<div
+		class="modal fade"
+		id="exampleModal"
+		tabindex="-1"
+		aria-labelledby="exampleModalLabel"
+		aria-hidden="true"
+	>
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h1 class="modal-title fs-5" id="exampleModalLabel">
+						Hooray!!
+					</h1>
+					<button
+						type="button"
+						class="btn-close"
+						data-bs-dismiss="modal"
+						aria-label="Close"
+					></button>
+				</div>
+				<div class="modal-body fs-3 text-center">Your order has been accepted</div>
+				<div class="modal-footer">
+					<button
+						type="button"
+						class="btn btn-outline-success rounded-5 w-50"
+						data-bs-dismiss="modal"
+						routerLink="/cart"
+					>
+						Continue Shopping
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

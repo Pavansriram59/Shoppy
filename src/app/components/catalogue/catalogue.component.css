@@ -1,0 +1,20 @@
+h3 {
+  color: #013d29;
+  font-weight: bold;
+}
+#adContainer > button,
+button:hover {
+  background-color: #013d29;
+  color: white;
+}
+#adContainer {
+  background-color:antiquewhite;
+  width: 100%;
+  padding: 30px;
+}
+.card {
+  height: 27rem;
+}
+img {
+  height: 15rem;
+}

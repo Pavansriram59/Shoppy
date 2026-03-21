@@ -1,0 +1,28 @@
+{
+  "overrides": [
+    {
+      "files": ["*.html"],
+      "options": {
+        "parser": "angular",
+        "useTabs": true,
+        "tabWidth": 4
+      }
+    },
+    {
+      "files": ["*.ts"],
+      "options": {
+        "parser": "typescript",
+        "useTabs": true,
+        "tabWidth": 4
+      }
+    },
+    {
+      "files": ["*.yaml"],
+      "options": {
+        "parser": "yaml",
+        "useTabs": true,
+        "tabWidth": 4
+      }
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+h1 {
+  color: #013d29;
+  font-weight: bold;
+}
+button {
+  background-color: #013d29;
+  color: white;
+}
+p {
+  margin: 0;
+}
+#categories {
+  width: 10rem;
+  cursor: pointer;
+}
+#categories > img {
+  width: 10rem;
+  height: 12rem;
+}
