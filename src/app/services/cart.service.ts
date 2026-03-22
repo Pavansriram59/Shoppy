@@ -6,7 +6,7 @@ import { Cart } from "../cart";
 	providedIn: "root",
 })
 export class CartService {
-	private readonly apiUrl = "http://localhost:3000";
+	private readonly apiUrl = "https://shoppy-api-f3w5.onrender.com";
 	constructor(private httpClient: HttpClient) {}
 
 	getCartDetails() {
