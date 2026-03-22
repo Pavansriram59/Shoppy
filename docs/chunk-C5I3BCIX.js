@@ -1,0 +1,1 @@
+import{Ha as o,Ia as a,Sa as i,ya as n}from"./chunk-BRXLBV24.js";var m=(()=>{class e{static \u0275fac=function(t){return new(t||e)};static \u0275cmp=n({type:e,selectors:[["app-page-not-found"]],decls:2,vars:0,consts:[[1,"text-center"]],template:function(t,c){t&1&&(o(0,"h1",0),i(1,"404!! Page Not Found"),a())},encapsulation:2})}return e})();export{m as PageNotFoundComponent};
